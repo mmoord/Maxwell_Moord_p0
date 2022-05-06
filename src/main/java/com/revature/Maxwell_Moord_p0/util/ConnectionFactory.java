@@ -1,17 +1,26 @@
 package com.revature.Maxwell_Moord_p0.util;
 
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class ConnectionFactory {
 
     private static final ConnectionFactory connectionFactory = new ConnectionFactory();
+    private Properties prop = new Properties();
 
     private ConnectionFactory(){
-
+        try {
+            prop.load(new FileReader("resources/db.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     static {
         try {
@@ -29,12 +38,10 @@ public class ConnectionFactory {
 
         Connection conn = null;
 
-        String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=mod_making";
-        String user = "postgres";
-        String password = "";
+
 
         try {
-            conn = DriverManager.getConnection(url, user, password);
+            conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

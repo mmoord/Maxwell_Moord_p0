@@ -14,6 +14,10 @@ public class Account {
         this.password = password;
     }
 
+    public Account(){
+
+    }
+
     //Getters And Setters
     public String getEmail(){return email;}
 
@@ -26,6 +30,8 @@ public class Account {
     public String getPassword(){return password;}
 
     public void setPassword(String password){this.password = password;}
+
+
 
     @Override // What this is?? Annotation - basically metadata
     public String toString() {
