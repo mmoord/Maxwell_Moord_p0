@@ -7,7 +7,9 @@ public class CreateAccountMenu extends Menu{
 
     public CreateAccountMenu(Scanner kb) {super(kb);}
 
-    public void createAccount(){
+    //TODO: Fix Scanner Issues, Scanner Moment
+
+    public void render() throws Exception{
         String prompt = "Please enter your ";
         String emailPrompt = "email: ";
         String usernamePrompt = "username: ";
@@ -15,13 +17,13 @@ public class CreateAccountMenu extends Menu{
         String passwordAgainPrompt = "password again: ";
 
         System.out.printf("%s%s", prompt,emailPrompt);
-        String email = kb.next();
+        String email = kb.nextLine();
         System.out.printf("%s%s", prompt,usernamePrompt);
-        String username = kb.next();
+        String username = kb.nextLine();
         System.out.printf("%s%s", prompt,passwordPrompt);
-        String password = kb.next();
+        String password = kb.nextLine();
         System.out.printf("%s%s", prompt,passwordAgainPrompt);
-        String passwordAgain = kb.next();
+        String passwordAgain = kb.nextLine();
 
         if (!password.equals(passwordAgain)) {
             System.out.println("Passwords do not match");

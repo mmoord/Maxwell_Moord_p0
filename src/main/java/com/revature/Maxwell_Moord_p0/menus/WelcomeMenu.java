@@ -8,7 +8,8 @@ public class WelcomeMenu extends Menu {
     public WelcomeMenu(Scanner kb) {
         super(kb);
     }
-    public void welcome() {
+
+    public void render() {
         String header = "Welcome to Maxwell's Magnificent Minecraft Modpack Maker";
         String option1 = "1) Login";
         String option2 = "2) Create an Account";
@@ -25,7 +26,11 @@ public class WelcomeMenu extends Menu {
             case "2":
                 System.out.println("User has selected create account...");
                 CreateAccountMenu createAccountMenu = new CreateAccountMenu(kb);
-                createAccountMenu.createAccount();
+                try {
+                    createAccountMenu.render();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "3":
                 System.out.println("User has selected exit...");

@@ -2,7 +2,7 @@ package com.revature.Maxwell_Moord_p0.menus;
 
 import java.util.*;
 
-public class Menu {
+public abstract class Menu {
 
     protected Scanner kb = new Scanner(System.in);
 
@@ -11,5 +11,7 @@ public class Menu {
         this.kb = kb;
 
     }
+
+    public abstract void render() throws Exception;
 
 }

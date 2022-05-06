@@ -1,6 +1,7 @@
 package com.revature.Maxwell_Moord_p0.util;
 import java.util.*;
 import com.revature.Maxwell_Moord_p0.menus.WelcomeMenu;
+
 public class AppState {
     private static boolean isRunning;
     private WelcomeMenu welcomeMenu;
@@ -15,7 +16,7 @@ public class AppState {
     public void startup(){
 
         while(isRunning){
-            welcomeMenu.welcome();
+            welcomeMenu.render();
         }
     }
 

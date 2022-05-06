@@ -31,7 +31,7 @@ public class ConnectionFactory {
 
         String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=mod_making";
         String user = "postgres";
-        String password = "postgres";
+        String password = "";
 
         try {
             conn = DriverManager.getConnection(url, user, password);

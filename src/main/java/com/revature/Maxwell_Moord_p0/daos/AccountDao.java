@@ -8,17 +8,12 @@ import java.sql.*;
 public class AccountDao {
 
 
-    public Account create(Account newUser) {
-        System.out.println("Here is the newTrainer as it enters our DAO layer: "+ newUser); // What happens here? Java knows to invoke the toString() method when printing the object to the terminal
+    public static Account create(Account newUser) {
+        System.out.println("Here is the newUser as it enters our DAO layer: "+ newUser); // What happens here? Java knows to invoke the toString() method when printing the object to the terminal
 
         try(Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-            // NEVER EVER EVER EVER EVER concatenate or directly use these strings inside of the sql statement
-            // String sql = "insert into trainer value (" + newTrainer.getFname() + "," + newTrainer.getLname();
-
-            // The commented out sql String is using default for auto-generating the ID ifyou used serial
-            // String sql = "insert into trainer values (default, ?, ?, ?, ?, ?)"; // incomplete sql statement, with default if not specifiying columns
-            String sql = "insert into trainer (fname, lname, email, password, dob) values (default,?, ?, ?)";
+            String sql = "insert into usr_data (id, email, username, password) values (default,?, ?, ?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
